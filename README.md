@@ -14,14 +14,14 @@ $ npm install postcss-color-hcl
 // dependencies
 var fs = require("fs")
 var postcss = require("postcss")
-var colorHwb = require("postcss-color-hcl")
+var colorHcl = require("postcss-color-hcl")
 
 // css to be processed
 var css = fs.readFileSync("input.css", "utf8")
 
 // process css
 var output = postcss()
-  .use(colorHwb())
+  .use(colorHcl())
   .process(css)
   .css
 ```
