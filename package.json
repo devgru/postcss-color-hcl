@@ -1,0 +1,31 @@
+{
+  "name": "postcss-color-hcl",
+  "version": "0.0.1",
+  "description": "PostCSS plugin to transform hcl() function to more compatible CSS (rgb() or rgba()).",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "color",
+    "rgb",
+    "hcl"
+  ],
+  "author": "Dima Devgru <git@devg.ru>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devgru/postcss-color-hcl.git"
+  },
+  "dependencies": {
+    "d3": "^3.5.5",
+    "postcss": "^4.1.5",
+    "reduce-function-call": "^1.0.1"
+  },
+  "devDependencies": {
+    "tap-spec": "^3.0.0",
+    "tape": "^4.0.0"
+  },
+  "scripts": {
+    "test": "node test.js | tap-spec"
+  }
+}
