@@ -1,6 +1,6 @@
 # postcss-color-hcl [![Build Status](https://travis-ci.org/devgru/postcss-color-hcl.png)](https://travis-ci.org/postcss/postcss-color-hcl)
 
-> [PostCSS](https://github.com/postcss/postcss) plugin to transform [hcl() color](http://hclwizard.org/hcl-color-scheme/) to compatible CSS (rgb() (or rgba())).
+> [PostCSS](https://github.com/postcss/postcss) plugin to transform [hcl() color](http://hclwizard.org/hcl-color-scheme/) to compatible CSS (#hex or rgba()).
 
 ## Installation
 
