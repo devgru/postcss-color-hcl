@@ -1,20 +1,26 @@
 'use strict';
 
 var postcss = require('postcss');
-var hcl = require('./');
+var hcl = require('./../index');
 var test = require('tape');
 
 function useHcl() {
     return postcss().use(hcl());
 }
 
-test('filterDeclarations()', function(t) {
-    t.plan(7);
+test('filterDeclarations()', function (t) {
+    t.plan(9);
 
     t.equal(
         useHcl().process('a { color: hcl(0, 0, 50); }').css,
         'a { color: #777777; }',
         'should convert hcl(H, C, L) to #RRGGBB.'
+    );
+
+    t.equal(
+        useHcl().process('a { color: hcl(0, 0%, 50%); }').css,
+        'a { color: #777777; }',
+        'should convert hcl(H, C%, L%) to #RRGGBB.'
     );
 
     t.equal(
@@ -31,6 +37,14 @@ test('filterDeclarations()', function(t) {
 
     t.throws(
         function () {
+            useHcl().process('a { color: hcl(180, 80, 80); }').css;
+        },
+        /HCL color out of range: "hcl\(180, 80, 80\)"/,
+        'should throw an error when color is out of range.'
+    );
+
+    t.throws(
+        function () {
             useHcl().process('a { color: hcl(); }').css;
         },
         /Unable to parse color: "hcl\(\)"/,
@@ -38,15 +52,15 @@ test('filterDeclarations()', function(t) {
     );
 
     t.throws(
-        function() {
+        function () {
             useHcl().process('a { color: hcl(,foo); }').css;
         },
         /Unable to parse color: "hcl\(,foo\)"/,
-        'should throw an error when hcl() takes invalid argument.'
+        'should throw an error when hcl() takes invalid arguments.'
     );
 
     t.throws(
-        function() {
+        function () {
             useHcl().process('a {color: hcl(red); }', {from: 'fixture.css'}).css;
         },
         /fixture\.css:1:4: Unable to parse color: "hcl\(red\)"/,
@@ -54,7 +68,7 @@ test('filterDeclarations()', function(t) {
     );
 
     t.throws(
-        function() {
+        function () {
             useHcl().process('a {color: hcl(,)}', {map: true}).css;
         },
         /<css input>:1:4: Unable to parse color: "hcl\(,\)"/,
