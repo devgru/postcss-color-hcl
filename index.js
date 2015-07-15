@@ -1,7 +1,7 @@
 var postcss = require('postcss');
 var reduceFunctionCall = require('reduce-function-call');
 
-var d3 = require('d3');
+var d3 = require('d3-color');
 
 function justFloat(n) {
     return parseFloat(n);
