@@ -19,13 +19,6 @@ function colorValuesDefined(hcl) {
     });
 }
 
-function colorValuesInRange(hcl) {
-    var rgb = hcl.rgb();
-    return objectToArray(rgb).every(function (v) {
-        return v >= 0 && v <= 255;
-    });
-}
-
 function transformDecl(decl) {
     var value = decl.value;
 
@@ -34,7 +27,7 @@ function transformDecl(decl) {
         var hclColor = d3.hcl.apply(null, hclValues);
         if (!colorValuesDefined(hclColor))
             throw decl.error('Unable to parse color: "' + value + '"');
-        if (!colorValuesInRange(hclColor))
+        if (!hclColor.displayable())
             throw decl.error('HCL color out of range: "' + value + '"');
         var hex = hclColor.toString();
         if (hclValues.length == 4) {
