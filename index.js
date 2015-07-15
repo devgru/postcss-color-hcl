@@ -14,9 +14,7 @@ function objectToArray(o) {
 }
 
 function colorValuesDefined(hcl) {
-    return objectToArray(hcl).every(function (v) {
-        return !isNaN(v);
-    });
+    return !objectToArray(hcl).some(isNaN);
 }
 
 function transformDecl(decl) {
