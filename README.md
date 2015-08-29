@@ -30,7 +30,8 @@ Using this `input.css`:
 
 ```css
 body {
-  color: hcl(90, 0%, 0%, 0.5);
+  color: hcl(21, 70%, 50%, 0.5);
+  background: hcl(0, 0%, 50%);
 }
 
 ```
@@ -39,7 +40,8 @@ you will get:
 
 ```css
 body {
-  color: rgba(128, 255, 0, 0.5);
+  color: rgba(221, 52, 80, 0.5);
+  background: #777777;
 }
 ```
 
