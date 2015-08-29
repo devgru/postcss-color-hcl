@@ -42,7 +42,7 @@ function transformDecl(decl) {
 }
 
 function colorHcl(css) {
-    css.eachDecl(transformDecl);
+    css.walkDecls(transformDecl);
 }
 
 module.exports = postcss.plugin('postcss-color-hcl', function colorHclPlugin() {

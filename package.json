@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "d3-color": "0.2.3",
-    "postcss": "4",
+    "postcss": "5",
     "reduce-function-call": "1"
   },
   "devDependencies": {
