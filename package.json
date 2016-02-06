@@ -1,6 +1,6 @@
 {
   "name": "postcss-color-hcl",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "PostCSS plugin to transform hcl() function to more compatible CSS (rgb() or rgba()).",
   "keywords": [
     "postcss",
