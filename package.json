@@ -17,7 +17,7 @@
     "url": "https://github.com/devgru/postcss-color-hcl.git"
   },
   "dependencies": {
-    "d3-color": "0.2.3",
+    "d3-color": "0.4",
     "postcss": "5",
     "reduce-function-call": "1"
   },

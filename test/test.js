@@ -13,14 +13,14 @@ test('filterDeclarations()', function (t) {
 
     t.equal(
         useHcl().process('a { color: hcl(0, 0, 50); }').css,
-        'a { color: #777777; }',
-        'should convert hcl(H, C, L) to #RRGGBB.'
+        'a { color: rgb(119, 119, 119); }',
+        'should convert hcl(H, C, L) to rgb(R, G, B).'
     );
 
     t.equal(
         useHcl().process('a { color: hcl(0, 0%, 50%); }').css,
-        'a { color: #777777; }',
-        'should convert hcl(H, C%, L%) to #RRGGBB.'
+        'a { color: rgb(119, 119, 119); }',
+        'should convert hcl(H, C%, L%) to rgb(R, G, B).'
     );
 
     t.equal(

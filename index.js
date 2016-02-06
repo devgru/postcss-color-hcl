@@ -20,22 +20,15 @@ function transformDecl(decl) {
     var value = decl.value;
 
     function reduceHcl(body) {
-        var hclValues = body.split(',').map(justFloat);
-        var hclColor = d3.hcl.apply(null, hclValues);
+        var hclaValues = body.split(',').map(justFloat);
+        var hclColor = d3.hcl.apply(null, hclaValues);
         if (!colorValuesDefined(hclColor)) {
             throw decl.error('Unable to parse color: "' + value + '"');
         }
         if (!hclColor.displayable()) {
             throw decl.error('HCL color out of range: "' + value + '"');
         }
-
-        var hex = hclColor.toString();
-        if (hclValues.length == 4) {
-            var α = hclValues[3];
-            var rgb = d3.rgb(hex);
-            return ['rgba(', rgb.r, ', ', rgb.g, ', ', rgb.b, ', ', α, ')'].join('');
-        }
-        return hex;
+        return hclColor.toString();
     }
 
     decl.value = reduceFunctionCall(value, 'hcl', reduceHcl);

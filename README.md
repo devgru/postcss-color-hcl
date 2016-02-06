@@ -41,7 +41,7 @@ you will get:
 ```css
 body {
   color: rgba(221, 52, 80, 0.5);
-  background: #777777;
+  background: rgb(119, 119, 119);
 }
 ```
 
